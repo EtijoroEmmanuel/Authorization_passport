@@ -3,7 +3,7 @@ const Joi = require('joi');
 
 exports.registerValidation = (req, res, next)=>{
     const schema = Joi.object({
-        fullName: Joi.string().min(3).trim().pattern(/^\s*[A-Za-z]+\s*$/).required().messages({
+        fullName: Joi.string().min(3).trim().pattern(/^[A-Za-z ]+$/).required().messages({
            "any.required":'Fullname is required',
             'string.empty': 'Fullname cannot be empty',
             'string.pattern.base':"FullName should only contain alphabets",
