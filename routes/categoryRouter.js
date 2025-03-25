@@ -12,8 +12,6 @@ const router = require('express').Router();
  *       description: Create a category with a name and amenities, accessible only to admins.
  *       tags:
  *         - Category
- *       security:
- *         - bearerAuth: []
  *       requestBody:
  *         required: true
  *         content:
@@ -74,6 +72,7 @@ router.post('/category', authenticate, adminAuth, createCategory);
  *       description: Fetch all categories along with associated rooms.
  *       tags:
  *         - Category
+ *       security: []  # No authentication required
  *       responses:
  *         200:
  *           description: List of all categories

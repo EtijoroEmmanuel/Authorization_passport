@@ -13,6 +13,7 @@ const router = require('express').Router();
  *       description: Upload images and create a new room under a specific category.
  *       tags:
  *         - Room
+ *       security: []  # No authentication required
  *       parameters:
  *         - in: path
  *           name: id

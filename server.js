@@ -51,7 +51,7 @@ const swaggerDefinition = {
     servers: [
         //  render base url link
       {
-        url: 'http://localhost:4545',
+        url: 'https://authorization-passport-1.onrender.com',
         description: 'Production server',
       },
     //   localhost url

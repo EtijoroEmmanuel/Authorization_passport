@@ -135,7 +135,7 @@ exports.updateRoomImage = async (req, res) => {
                  message: "Image not found in room" });
 }
         // Upload new image to Cloudinary
-        const result = await cloudinary.uploader.upload(file.path);
+        const result = await cloudinary.uploader.upload(file[0].path);
         // Delete from local storage
         fs.unlinkSync(file.path); 
         // Delete the old image from Cloudinary

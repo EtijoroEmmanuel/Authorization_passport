@@ -219,6 +219,64 @@ router.post('/login', login);
 
 router.get('/users', authenticate, getAll);
 
+/**
+ * @swagger
+ * paths:
+ *   /make-admin/{id}:
+ *     patch:
+ *       summary: Makes user an Admin
+ *       description: Allows a super admin to grant admin rights to a specific user.
+ *       tags:
+ *         - User
+ *       parameters:
+ *         - in: path
+ *           name: id
+ *           required: true
+ *           schema:
+ *             type: string
+ *           description: The ID of the user to be made an admin.
+ *       responses:
+ *         200:
+ *           description: User successfully promoted to admin
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 type: object
+ *                 properties:
+ *                   message:
+ *                     type: string
+ *                     example: "User: John Doe is now an Admin"
+ *         400:
+ *           description: User is already an admin
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 type: object
+ *                 properties:
+ *                   message:
+ *                     type: string
+ *                     example: "User is already an Admin"
+ *         404:
+ *           description: User not found
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 type: object
+ *                 properties:
+ *                   message:
+ *                     type: string
+ *                     example: "User not found"
+ *         500:
+ *           description: Internal Server Error
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 type: object
+ *                 properties:
+ *                   message:
+ *                     type: string
+ */
+
 router.patch('/make-admin/:id', authenticate, superAdminAuth, makeAdmin);
 
 router.get('/google-authenticate', passport.authenticate('google', {scope: ['profile', 'email']}));
